@@ -1,7 +1,9 @@
 <h1> List of Kittens </h1>
 
+<% @kittens.each do |kitten| %>
 
+  <ul>
+    <li> <%= kitten.age %> </li>
+  </ul>
 
-<ul class="kittens">
-  <%= render @kittens %>
-</ul>
+<% end %>
