@@ -5,7 +5,7 @@ class KittensController < ApplicationController
   end
 
   def show
-    @kitten = Kitten.find(params[:id])
+    find_kitten
   end
 
   def new
@@ -13,6 +13,7 @@ class KittensController < ApplicationController
   end
 
   def edit
+    find_kitten
   end
 
   def create
@@ -22,9 +23,30 @@ class KittensController < ApplicationController
     redirect_to @kitten
   end
 
+  def destroy
+    find_kitten
+    @kitten.destroy
+
+    redirect_to kittens_path
+  end
+
+  def update
+    find_kitten
+    if @kitten.update(kitten_params)
+      flash[:success] = "Succesfully edited your kitten!"
+      redirect_to @kitten
+    else
+      render 'edit'
+    end
+  end
+
   private
     def kitten_params
       params.require(:kitten).permit(:name, :age, :cuteness, :softness)
+    end
+
+    def find_kitten
+      @kitten = Kitten.find(params[:id])
     end
 
 end

@@ -2,12 +2,14 @@
 
 <% @kittens.each do |kitten| %>
 
-  <h2><%= kitten.name %></h2> <%= link_to 'Delete' kitten_path(@kitten) %>
 
-    <ul>
-      <li> <%= kitten.age %> </li>
-      <li> <%= kitten.cuteness %> </li>
-      <li> <%= kitten.softness %> </li>
-    </ul>
+<h2><%= kitten.name %></h2> <%= link_to "Delete #{kitten.name}", kitten_path(kitten), method: :delete %>
+<p><%= link_to "View #{kitten.name}", kitten_path(kitten) %></p>
+
+<ul>
+  <li>Age: <%= kitten.age %></li>
+  <li>Cuteness: <%= kitten.cuteness %></li>
+  <li>Softness: <%= kitten.softness %></li>
+</ul>
 
 <% end %>
