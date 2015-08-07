@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'flickr-fu'
 gem 'rails', '4.2.0'
 gem 'rest_client'
 gem 'sqlite3'
