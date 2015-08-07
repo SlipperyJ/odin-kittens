@@ -2,6 +2,6 @@
 <%= flash[:success] %>
 
 <p><%= link_to "Edit #{@kitten.name}", edit_kitten_path(@kitten)  %></p>
-<p><%= link_to "Delete #{@kitten.name}", kitten_path(@kitten),
+<p><%= link_to "Delete #{@kitten.name}", kitten_path(@kitten) %>
 
 <%= render 'kitten_stats' %>
